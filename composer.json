@@ -45,7 +45,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Biscolab\\LaravelAuthLog\\LaravelAuthLogServiceProvider"
+                "Biscolab\\LaravelAuthLog\\AuthLogServiceProvider"
             ],
             "aliases": {
                 "AuthLog": "Biscolab\\LaravelAuthLog\\Facades\\AuthLog"
