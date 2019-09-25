@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019 - present
+  ~ Laravel Auth Log - phpunit.xml
+  ~ author: Roberto Belotti - roby.belotti@gmail.com
+  ~ web : robertobelotti.com, github.com/biscolab
+  ~ Initial version created on: 23/9/2019
+  ~ MIT license: https://github.com/biscolab/laravel-authlog/blob/master/LICENSE
+  -->
+
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".php">./vendor</directory>
+                <directory suffix=".php">./config</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="DB_CONNECTION" value="testing"/>
+        <env name="DEFAULT_AUTH_LOG_ID" value="123"/>
+        <env name="DEFAULT_SESSION_ID" value="DEFAULT_SESSION_ID"/>
+        <env name="DEFAULT_USER_EMAIL" value="info@biscolab.com"/>
+        <env name="DEFAULT_USER_PASSWORD" value="11111111"/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+    </php>
+</phpunit>

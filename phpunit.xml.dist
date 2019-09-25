@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>./tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+            <exclude>
+                <directory suffix=".php">./vendor</directory>
+                <directory suffix=".php">./config</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="DB_CONNECTION" value="testing"/>
+        <env name="DEFAULT_AUTH_LOG_ID" value="123"/>
+        <env name="DEFAULT_SESSION_ID" value="DEFAULT_SESSION_ID"/>
+        <env name="DEFAULT_USER_EMAIL" value="info@biscolab.com"/>
+        <env name="DEFAULT_USER_PASSWORD" value="11111111"/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+    </php>
+</phpunit>

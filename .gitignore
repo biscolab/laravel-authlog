@@ -1,0 +1,16 @@
+vendor/
+/.idea
+
+# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+.rocketeer/
+
+# composer
+/composer.lock
+/composer.local.*
+/composer.phar
+
+# coverage reports
+/coverage.clover
+coverage.xml
+clover.xml
+report/
