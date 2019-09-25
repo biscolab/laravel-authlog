@@ -60,18 +60,16 @@ trait AuthLoggable
     }
 
     /**
-     * @param int|null $blame_on_user_id
-     *
      * @return AuthLogInterface|null
      */
-    public function registerLogout(?int $blame_on_user_id = null): ?AuthLogInterface
+    public function registerLogout(): ?AuthLogInterface
     {
 
         if (!authlog()->canRegisterAuthLog()) {
             return null;
         }
         if (!empty($this->current_auth_log)) {
-            return $this->current_auth_log->createLogout($blame_on_user_id);
+            return $this->current_auth_log->createLogout();
         }
 
         return null;
