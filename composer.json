@@ -1,7 +1,7 @@
 {
     "name": "biscolab/laravel-authlog",
     "description": "User's authentication log package for Laravel 5 and 6",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "license": "MIT",
     "type": "library",
     "keywords": [
