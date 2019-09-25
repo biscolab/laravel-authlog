@@ -43,7 +43,8 @@ trait AuthLoggable
      */
     public function registerLogin(): ?AuthLogInterface
     {
-        if(!authlog()->canRegisterAuthLog()){
+
+        if (!authlog()->canRegisterAuthLog()) {
             return null;
         }
 
@@ -66,6 +67,9 @@ trait AuthLoggable
     public function registerLogout(?int $blame_on_user_id = null): ?AuthLogInterface
     {
 
+        if (!authlog()->canRegisterAuthLog()) {
+            return null;
+        }
         if (!empty($this->current_auth_log)) {
             return $this->current_auth_log->createLogout($blame_on_user_id);
         }
@@ -105,7 +109,8 @@ trait AuthLoggable
     public function logouts()
     {
 
-        return $this->logs()->whereNotNull('logged_out_at')->whereNull('blame_on_user_id')->where('killed_from_console', false);
+        return $this->logs()->whereNotNull('logged_out_at')->whereNull('blame_on_user_id')->where('killed_from_console',
+            false);
     }
 
     /**

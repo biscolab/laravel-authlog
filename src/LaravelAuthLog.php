@@ -40,7 +40,7 @@ class LaravelAuthLog
      */
     public function canRegisterAuthLog(): bool
     {
-        return !$this->skipByIp();
+        return !$this->skipByIp() && $this->isEnabled();
     }
 
     /**
