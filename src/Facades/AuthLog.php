@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static string getSessionAuthLogIdKey()
  * @method static string setAuthLogId()
  * @method static string getAuthLogId()
+ * @method static string getTableUserIdType()
+ * @method static string getMigrateUserIdType()
+ * @method static bool userTableIdIsInt()
  * @package Biscolab\LaravelAuthLog\Facades
  */
 class AuthLog extends Facade
