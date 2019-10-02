@@ -32,6 +32,10 @@ class AuthLogServiceProvider extends ServiceProvider
             __DIR__ . '/../config/authlog.php' => config_path('authlog.php'),
         ], 'config');
 
+        $this->publishes([
+            __DIR__ . '/../database/migrations/' => database_path('migrations')
+        ], 'migrations');
+
         $this->registerEventSubscribers();
 
         $this->registerAuthSessionFacades();

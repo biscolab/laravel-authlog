@@ -1,7 +1,7 @@
 {
     "name": "biscolab/laravel-authlog",
     "description": "User's authentication log package for Laravel 5 and 6",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -19,8 +19,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "laravel/framework": "^5.5|^6.0",
-        "illuminate/support": "^5.5|^6.0"
+        "laravel/framework": "^5.5|^6.0"
     },
     "require-dev": {
         "orchestra/testbench": "~3.0",
@@ -45,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Biscolab\\LaravelAuthLog\\LaravelAuthLogServiceProvider"
+                "Biscolab\\LaravelAuthLog\\AuthLogServiceProvider"
             ],
             "aliases": {
                 "AuthLog": "Biscolab\\LaravelAuthLog\\Facades\\AuthLog"

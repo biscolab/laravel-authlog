@@ -40,7 +40,8 @@ class LaravelAuthLog
      */
     public function canRegisterAuthLog(): bool
     {
-        return !$this->skipByIp();
+
+        return !$this->skipByIp() && $this->isEnabled();
     }
 
     /**
@@ -48,6 +49,7 @@ class LaravelAuthLog
      */
     public function isEnabled(): bool
     {
+
         return config('authlog.enabled', false);
     }
 
@@ -94,5 +96,40 @@ class LaravelAuthLog
     {
 
         return Session::get($this->getSessionAuthLogIdKey());
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableUserIdType(): string
+    {
+
+        $users_table_cols = \DB::select('describe users');
+
+        foreach ($users_table_cols as $col) {
+            if ($col->Field === 'id') {
+                return $col->Type;
+            }
+        }
+
+        return '';
+    }
+
+    /**
+     * @return bool
+     */
+    public function userTableIdIsInt(): bool
+    {
+
+        return ('int(11) unsigned' === $this->getTableUserIdType());
+    }
+
+    /**
+     * @return string
+     */
+    public function getMigrateUserIdType(): string
+    {
+
+        return $this->userTableIdIsInt() ? 'unsignedInteger' : 'unsignedBigInteger';
     }
 }
