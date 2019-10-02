@@ -31,6 +31,12 @@ return [
     'table_name' => 'authlog',
 
     /**
+     * Users table size in order to add foreign keys
+     * Supported: 'int', 'big'
+     */
+    'users_table_size' => 'big',
+
+    /**
      * AuthLog model class MUST implements Biscolab\LaravelAuthLog\Models\AuthLogInterface
      */
     'authlog_model' => 'Biscolab\LaravelAuthLog\Models\AuthLog',
