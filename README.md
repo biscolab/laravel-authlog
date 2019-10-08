@@ -7,7 +7,7 @@ This package allows you to log user's authentication and force its logout if nec
 Set `session.driver` value
 > To use this package the only allowed values of `session.driver` are `file`, `database`, `redis` (at the moment).
 
-## Install`
+## Install
 
 You can install the package via composer:
 ```sh
@@ -91,7 +91,7 @@ AuthLog database table will be created.
 
 ## Middleware
 
-### Register `AuthLogMiddleware
+### Register `AuthLogMiddleware`
 Register `AuthLogMiddleware` in `app/Http/Kernel.php`. This middleware will handle user authentication session ID. 
 
 ```php
