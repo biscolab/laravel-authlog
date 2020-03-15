@@ -1,13 +1,17 @@
 # Laravel Auth-log
-User authentication log for Laravel 5 and 6.
+User authentication log for Laravel 5, 6 and 7.
 This package allows you to log user's authentication and force its logout if necessary!
+
+**This package is still unstable. Please report any bug`and documentation lack in order to fix that promptly**.
+
+Thanks for your help.
 
 ## System requirements
 
 Set `session.driver` value
 > To use this package the only allowed values of `session.driver` are `file`, `database`, `redis` (at the moment).
 
-## Install`
+## Install
 
 You can install the package via composer:
 ```sh
@@ -44,6 +48,7 @@ Edit `config/authlog.php`
 | `enabled` | `bool` | If `true` the package is active and user's authentication will be logged | `true` |
 | `skip_ip` | `string` | A whitelist of IP addresses (CSV format) that, if recognized, disable the package  | `''` |
 | `table_name` | `string` | The name of the AuthLog database table | `authlog` |
+| `users_table_size` | `string` | Users table size in order to add foreign keys (`int` means INT, `big` means BIGINT). Since Laravel 5.8, value should be `big` (*) | `big` |
 | `authlog_model` | `string` | AuthLog class. You can change ìt **BUT** your custom class **MUST** implements `'Biscolab\LaravelAuthLog\Models\AuthLogInterface'` | `'Biscolab\LaravelAuthLog\Models\AuthLog'` |
 | `session_model` | `string` | Session class. You can change ìt **BUT** your custom class **MUST** implements `'Biscolab\LaravelAuthLog\Models\SessionInterface'` | `'Biscolab\LaravelAuthLog\Models\Session'` |
 | `session_auth_log_id_key` | `string` | Session key used to store your AuthLog ID | `'auth_log_id'` |
@@ -53,6 +58,8 @@ Edit `config/authlog.php`
 | `auth_log_id_header_nameauth_log_id_header_name` | `string` | AuthLog ID header name | `'X-Auth-Log-Id'` |
 
 > Remember to run the `php artisan config:cache` command
+
+> (*) If you are using a custom `users` table please edit `datatbase/migratons/2019_09_19_000000_create_authlog_table.php` after run `vendor:publish` artisan command and before run `migration` artisan command
 
 ## Add `AuthLoggable` trait to `User` model
 
